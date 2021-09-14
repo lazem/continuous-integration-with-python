@@ -1,6 +1,6 @@
 from maths import multiple, add
 import unittest
-#import numpy
+import numpy
 
 
 class TestMaths(unittest.TestCase):
