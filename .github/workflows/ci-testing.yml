@@ -28,6 +28,10 @@ jobs:
       run: |
         sudo apt update  
         sudo apt install -y python3-numpy python3-scipy
+    - name: Link apt
+      run: |
+        ln -s /usr/local/lib/python{2.7,3.5}/site-packages
+        ln -s /opt/hostedtoolcache/python{2.7,3.5}/site-packages
     - name: Test with pytest
       run: |
         python -m unittest discover tests
