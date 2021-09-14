@@ -16,19 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.6
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.6
+#     - name: Set up Python 3.6
+#       uses: actions/setup-python@v2
+#       with:
+#         python-version: 3.6
     - name: Install dependencies
       run: |
+        sudo apt update  
+        sudo apt install --no-install-recommends python3-minimal python3  
+        sudo apt install python3-numpy
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        sudo apt update  
-        #sudo apt install --no-install-recommends python3-minimal python3  
-        sudo apt install python3-numpy
-        which numpy
-        which python
 #     - name: Install apt dependencies
 #       run: |
 #         sudo apt update  
@@ -39,6 +37,6 @@ jobs:
 #         echo $PYTHONPATH
     - name: Test with pytest
       run: |
-        which numpy 
+        #which numpy 
         which python
         python3 -m unittest discover tests
